@@ -1,0 +1,3 @@
+# Resource bytes stay exact; Lua sources use LF on every platform.
+* -text
+*.lua text eol=lf
