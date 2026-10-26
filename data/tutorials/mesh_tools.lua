@@ -1,4 +1,5 @@
 --@ title:       Working with geometry
+--@ revision:    2
 --@ subtitle:    Split, combine, shade and fix normals
 --@ category:    Basics
 --@ order:       30
@@ -217,6 +218,7 @@ te.wait_for_marker (5)
 te.scribble_at ("<popup>/Hide entirely/")
 
 
+te.checkpoint ("object context menu", "window")
 wait_step()
 
 step ("Feel free to experiment with these. Whatever you do with object or its visibility, Ctrl+Z - or the undo button in the"
@@ -236,6 +238,7 @@ te.wait_for_marker (1)
 te.item_click ("<popup>/Mesh tools/")
 te.scribble_at ("<popup>/Extract part/")
 
+te.checkpoint ("mesh tools menu", "window")
 wait_step()
 
 -- ----------------------------------------------------------- extract part
@@ -255,6 +258,7 @@ te.wait_for_marker (2)
 te.item_click ("<popup>/Extract part/")
 te.wait_for_seconds (0.5)
 
+te.checkpoint ("main stone extracted")
 wait_step()
 
 step ("Now that the stone is a separate object we can give it a material. ##1 Let's apply a diamond"
@@ -263,6 +267,7 @@ step ("Now that the stone is a separate object we can give it a material. ##1 Le
 te.wait_for_marker (1)
 apply_library_material ("Diamond")
 
+te.checkpoint ("diamond with smooth normals")
 wait_step()
 
 step ("Looks a bit strange, doesn't it? The stone was smooth-shaded, so its normals are blended"
@@ -277,6 +282,7 @@ te.wait_for_marker (2)
 te.item_click ("<popup>/Shade flat/")
 te.wait_for_seconds (0.5)
 
+te.checkpoint ("main stone flat shaded")
 wait_step()
 
 look (VIEW_RING)
@@ -298,6 +304,7 @@ te.wait_for_marker (4)
 te.item_click (PERFORM)
 te.wait_for_seconds (0.8)
 
+te.checkpoint ("ring separated into parts")
 wait_step()
 
 -- ------------------------------------------------------- small stones
@@ -320,6 +327,7 @@ end
 te.wait_for_marker (3)
 apply_library_material ("Diamond")
 
+te.checkpoint ("small stones assigned diamond")
 wait_step()
 
 step ("The same fix as before: ##1 Mesh tools, ##2 Shade flat - and the facets come back on every"
@@ -334,6 +342,7 @@ te.wait_for_marker (2)
 te.item_click ("<popup>/Shade flat/")
 te.wait_for_seconds (0.5)
 
+te.checkpoint ("small stones flat shaded")
 wait_step()
 
 -- ------------------------------------------------------- reverse normals
@@ -345,11 +354,13 @@ te.wait_for_marker (1)
 te.move_to_screen_pos ({ at = {0.329, 0.586}, point = {7.946707, -3.398927, -7.001979} })
 
 mesh_tool ("Reverse normals")
+te.checkpoint ("reversed stone normals")
 te.wait_for_seconds (1.0)
 
 te.wait_for_marker (2)
 te.item_click ("ToolContainer/Undo/#image/")
 
+te.checkpoint ("normals restored by undo")
 wait_step()
 
 -- --------------------------------------------------------- combine parts
@@ -369,6 +380,7 @@ te.wait_for_marker (3)
 te.item_click (PERFORM)
 te.wait_for_seconds (0.5)
 
+te.checkpoint ("small stones combined")
 wait_step()
 
 -- ---------------------------------------------------------- shade smooth
@@ -387,6 +399,7 @@ click ({ 0.66, 0.22 }, { count = 2 })
 
 te.wait_for_marker (2)
 mesh_tool ("Shade flat")
+te.checkpoint ("band flat shaded")
 te.wait_for_seconds (0.5)
 
 te.wait_for_marker (3)
@@ -397,6 +410,7 @@ te.wait_for_marker (4)
 te.item_input_value_float ("<popup>/Max face angle:", 30)
 te.wait_for_seconds (0.5)
 
+te.checkpoint ("band smooth shaded")
 wait_step()
 
 -- ------------------------------------------------------------------- outro

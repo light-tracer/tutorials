@@ -1,4 +1,5 @@
 --@ title:       Materials from the library
+--@ revision:    2
 --@ subtitle:    Built-in presets, color controls and your own materials
 --@ category:    Basics
 --@ order:       120

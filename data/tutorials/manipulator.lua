@@ -1,4 +1,5 @@
 --@ title:       Moving objects
+--@ revision:    2
 --@ subtitle:    Move, rotate, scale and duplicate
 --@ category:    Basics
 --@ order:       20
@@ -45,6 +46,7 @@ te.wait_for_marker(1)
 
 te.item_click ("LeftToolsContainer/##Trfm/#image/")
 
+te.checkpoint ("manipulator window", "window")
 wait_step()
 
 ---------------------------------------------------------------
@@ -58,6 +60,7 @@ te.gizmo_drag ({ origin = {0.53790, 0.45158}, start = {-65.71, 18.44}, delta = {
 te.wait_for_seconds (0.5)
 
 te.gizmo_drag ({ origin = {0.49382, 0.47186}, start = {-41.92, -28.03}, delta = {0.15596, -0.05898}, duration = 2.80730 })
+te.checkpoint ("translated ring", "window")
 
 te.wait_for_seconds (0.5)
 
@@ -77,6 +80,7 @@ te.gizmo_drag ({ origin = {0.49396, 0.47172}, start = {-1.12, 3.08}, delta = {-0
 te.wait_for_seconds (0.5)
 
 te.gizmo_drag ({ origin = {0.49401, 0.47165}, start = {-1.20, 0.13}, delta = {0.03408, -0.00393}, duration = 1.96609 })
+te.checkpoint ("uniform scale", "window")
 te.wait_for_seconds (0.5)
 
 te.item_click ("ToolContainer/Undo/#image/")
@@ -92,12 +96,14 @@ te.item_click ("Transform/Scale/")
 
 te.wait_for_marker (1)
 te.item_input_text ("Transform/ ##ScaleX/", "0.5")
+te.checkpoint ("numeric scale", "window")
 
 te.wait_for_seconds (0.5)
 te.item_click ("ToolContainer/Undo/#image/")
 
 te.wait_for_marker (2) -- TODO
 te.gizmo_drag ({ handle = "ScY", origin = {0.54253, 0.44973}, start = {-146.87, 33.00}, delta = {-0.06652, 0.01058}, duration = 1.39931, T = {-0.086937, 3.943082, 0.000000}, R = {0.000000, 0.000000, 0.000000}, S = {1.000000, 1.581576, 1.000000} })
+te.checkpoint ("per-axis scale", "window")
 te.wait_for_seconds (0.5)
 
 te.item_click ("ToolContainer/Undo/#image/")
@@ -116,6 +122,7 @@ te.gizmo_drag ({ handle = "RoX", origin = {0.54253, 0.44973}, start = {-56.87, -
 te.wait_for_seconds (0.5)
 
 te.gizmo_drag ({ handle = "RoZ", origin = {0.54249, 0.44987}, start = {-102.78, 61.82}, delta = {0.13001, 0.02268}, duration = 1.50213, T = {-0.086937, 3.943082, 0.000000}, R = {0.859536, 0.000000, 1.141671}, S = {1.000000, 1.000000, 1.000000} })
+te.checkpoint ("rotated ring", "window")
 te.wait_for_seconds (0.5)
 
 te.item_click ("ToolContainer/Undo/#image/")
@@ -136,6 +143,7 @@ te.gizmo_drag ({ handle = "RoX", origin = {0.54246, 0.44964}, start = {-45.69, -
 
 te.wait_for_marker (2)
 te.item_click ("Transform/Space/Local/")
+te.checkpoint ("snapped rotation in local space", "window")
 te.wait_for_seconds (1.5)
 
 te.item_click ("ToolContainer/Undo/#image/")
@@ -159,6 +167,7 @@ te.item_click ("LeftGrabContainer/##LeftGrab/")
 -- The new object shows up straight away in the Scene Explorer.
 open_tab ("Scene Explorer")
 
+te.checkpoint ("duplicate in scene explorer", "window")
 wait_step()
 
 step ("The duplicate appears immediately in the Scene Explorer, right next to the original, so you"
@@ -171,17 +180,13 @@ te.item_click ("##Popup_db6eb242/Rename/")
 te.item_input_text ("##Popup_bee3dee3/##Name/", "Ring 2")
 
 
+te.checkpoint ("renamed duplicate", "window")
 wait_step()
 
 --------------------------------------------------------------- rotate + local space
-step ("Let's add the floor and use the 3D manipulator widget to place the second ring.", "bottom")
+step ("Let's use the 3D manipulator widget to place the second ring.", "bottom")
 
 te.item_click ("LeftGrabContainer/##LeftGrab/")
-te.item_click ("LeftToolsContainer/##Model/#image/")
-te.item_click ("Modeling/Square floor/##/")
-
-te.item_click ("LeftToolsContainer/##Model/#image/")
-
 
 te.select_at_screen_pos ({ at = {0.596, 0.240}, point = {-4.100174, 9.810848, 7.948540}, node = "Ring 2", append = false, right = false })
 te.gizmo_drag ({ handle = "TrY", origin = {0.62688, 0.41153}, start = {-33.82, 11.54}, delta = {-0.17385, 0.05669}, duration = 0.5, T = {-0.086937, 3.441298, 0.000000}, R = {0.000000, 0.000000, 0.000000}, S = {1.000000, 1.000000, 1.000000} })
@@ -190,6 +195,7 @@ te.gizmo_drag ({ handle = "TrY", origin = {0.53599, 0.45262}, start = {-48.14, -
 te.gizmo_drag ({ handle = "TrXZ", origin = {0.55834, 0.59410}, start = {-21.34, 51.00}, delta = {0.00983, -0.00151}, duration = 0.5, T = {0.075195, 5.636030, -6.870927}, R = {-1.308997, 0.000000, 0.000000}, S = {1.000000, 1.000000, 1.000000} })
 te.gizmo_drag ({ handle = "TrY", origin = {0.56337, 0.59259}, start = {-41.22, -135.99}, delta = {0.00983, 0.03401}, duration = 0.5, T = {0.075195, 6.078946, -8.523911}, R = {-1.308997, 0.000000, 0.000000}, S = {1.000000, 1.000000, 1.000000} })
 
+te.checkpoint ("ring placed above floor")
 wait_step()
 
 ---------------------------------------------------------------
@@ -205,6 +211,7 @@ te.wait_for_seconds (3.0)
 te.item_click ("Physics/^b239^b129^b129 Stop simulation/")
 te.item_click ("LeftToolsContainer/##Physics/#image/")
 
+te.checkpoint ("ring settled on floor")
 wait_step()
 
 te.capture_thumbnail()
@@ -217,6 +224,7 @@ te.select_at_screen_pos ({ at = {0.502, 0.497}, point = {-7.484818, 3.880482, -4
 te.select_at_screen_pos ({ at = {0.438, 0.617}, point = {-5.918869, -1.927723, -7.403198}, node = "Ring 2", append = true, right = false })
 te.item_click ("LeftToolsContainer/##Multiselect/#image/")
 
+te.checkpoint ("multiple rings selected", "window")
 wait_step()
 
 -- TODO: advanced tutorial with rotating manipulator with held alt

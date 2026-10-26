@@ -1,4 +1,5 @@
 --@ title:       The physical camera
+--@ revision:    2
 --@ subtitle:    Depth of field, focus and focal length
 --@ category:    Basics
 --@ order:       50

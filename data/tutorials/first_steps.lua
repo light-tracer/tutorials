@@ -1,4 +1,5 @@
 --@ title:       First steps
+--@ revision:    2
 --@ subtitle:    A guided tour of the Light Tracer panels
 --@ category:    Basics
 --@ order:       10
@@ -37,6 +38,7 @@ scribble_step ("This is the Scene Explorer. Every model and material in your pro
    .. " including the ones that are currently hidden, and selecting an object here is the same as"
    .. " clicking it in the viewport.", "Scene Explorer/")
 
+te.checkpoint ("scene explorer", "window")
 wait_step()
 
 -- ----------------------------------------------------------------- viewport
@@ -65,6 +67,7 @@ te.item_click ("ToolContainer/Undo/#image/")
 te.viewport_drag ({ start = {0.43958, 0.55933}, delta = {-46.00, -76.67}, button = "left", duration = 1.10577, eye = {81.072693, -100.829857, 50.995613}, target = {0.626839, 0.391197, 1.714664}, up = {-0.221595, 0.278825, 0.934426} })
 
 
+te.checkpoint ("viewport after orbit and undo")
 wait_step()
 
 -- --------------------------------------------------------------- environment
@@ -76,6 +79,7 @@ step ("Lighting comes from the Environment tab. An HDRI map lights the whole sce
    .. " backplate controls what you see behind the object, ##1 and from here you can also add and move"
    .. " individual light sources.", "top")
 
+te.checkpoint ("environment panel", "window")
 wait_step()
 
 -- ------------------------------------------------------------------ properties
@@ -106,6 +110,7 @@ te.move_to_item ("Properties/Roughness:/")
 
 
 
+te.checkpoint ("material properties", "window")
 wait_step()
 
 -- ------------------------------------------------------------------- library
@@ -124,6 +129,7 @@ te.item_click ("Library/Lights/")
 te.wait_for_seconds (0.6)
 te.item_click ("Library/Materials/")
 
+te.checkpoint ("material library", "window")
 wait_step()
 
 -- ----------------------------------------------------------------- animation
@@ -135,6 +141,7 @@ step ("The Animation tab is where motion is set up. Spin the camera, move an obj
    .. " then play it back and arrange everything on the timeline.",
    "center")
 
+te.checkpoint ("animation panel", "window")
 wait_step()
 
 -- ------------------------------------------------------------------ settings
@@ -145,6 +152,7 @@ te.scribble_at ("Settings/")
 step ("Everything that controls the render lives in the Settings tab: ##1 output resolution and ##2 render mode as well as the"
    .. " ##3 watermark and ##4 outline settings.", "center")
 
+te.checkpoint ("render settings", "window")
 wait_step()
 
 -- --------------------------------------------------------------- widget rails
@@ -176,6 +184,7 @@ te.move_to_item ("LeftToolsContainer/##Multiselect/#image/")
 te.wait_for_seconds(1)
 te.move_to_item ("LeftToolsContainer/##Rectselect/#image/")
 
+te.checkpoint ("left tool rail", "window")
 wait_step()
 
 te.move_to_item("RightToolsContainer/##CameraWidget/#image/")
@@ -202,6 +211,7 @@ te.move_to_item ("RightToolsContainer/##Denoising/#image/")
 te.wait_for_marker(6)
 te.move_to_item ("RightToolsContainer/##RT/#image/")
 
+te.checkpoint ("right tool rail", "window")
 wait_step()
 
 te.move_to_item("ToolContainer/Undo/#image/")
@@ -245,6 +255,7 @@ te.wait_for_marker(9)
 te.item_click ("ToolContainer/Help/#image/")
 te.wait_for_seconds(1)
 
+te.checkpoint ("help window", "window")
 wait_step()
 
 -- --------------------------------------------------------------- burger menu
@@ -277,6 +288,7 @@ te.item_click ("TitleBarWindow/##Pass/")
 te.wait_for_marker(6)
 te.item_click ("TitleBarWindow/Noise:/")
 
+te.checkpoint ("noise control", "window")
 wait_step()
 
 -- --------------------------------------------------------------------- outro

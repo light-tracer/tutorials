@@ -1,4 +1,5 @@
 --@ title:       Bloom and glare
+--@ revision:    2
 --@ subtitle:    Soft glow, sharp streaks and focused highlights
 --@ category:    Basics
 --@ order:       130

@@ -1,4 +1,5 @@
 --@ title:       Post-processing a render
+--@ revision:    2
 --@ subtitle:    Exposure, contrast and color balance
 --@ category:    Basics
 --@ order:       140

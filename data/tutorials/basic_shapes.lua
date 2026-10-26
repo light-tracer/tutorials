@@ -1,4 +1,5 @@
 --@ title:       Building with shapes
+--@ revision:    2
 --@ subtitle:    Stands, primitives, placing, shading and scale
 --@ category:    Basics
 --@ order:       200
@@ -242,6 +243,10 @@ wait_step()
 -- ------------------------------------------------------------------- outro
 te.item_click (MODEL_BUTTON)
 
+-- The lesson folded the side panels before showing the toolbox. Restore the
+-- left panel before selecting its Tutorials tab.
+te.item_click ("LeftGrabContainer/##LeftGrab/")
+te.wait_until_available ("Tutorials/", 5)
 open_tab ("Tutorials")
 
 -- The picture this lesson is listed by. Ignored while a viewer plays it;
@@ -249,8 +254,6 @@ open_tab ("Tutorials")
 te.capture_thumbnail()
 
 te.item_click ("RightGrabContainer/##RightGrab/")
-
-te.item_click ("LeftGrabContainer/##LeftGrab/")
 
 tutorial_end ("That is the toolbox. Everything you built is an ordinary object: select it in the Scene"
            .. " Explorer, move it into place, or drag a material onto it from the Library.")

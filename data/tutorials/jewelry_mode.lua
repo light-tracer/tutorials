@@ -1,4 +1,5 @@
 --@ title:       Real-time jewelry mode
+--@ revision:    2
 --@ subtitle:    Fast renders, smooth materials and a baked catcher
 --@ category:    Basics
 --@ order:       110

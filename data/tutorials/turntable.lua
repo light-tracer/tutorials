@@ -1,4 +1,5 @@
 --@ title:       Turntable animations
+--@ revision:    2
 --@ subtitle:    Round and swing camera scripts
 --@ category:    Basics
 --@ order:       60
@@ -148,6 +149,7 @@ step_at ("To choose the centre of rotation, ##1 click Set orbit center. ##2 Rese
    .. " viewport - let's take the front ring's stone - ##4 and Pick point at any spot on a"
    .. " surface.", "Animation/Video/", "left")
    
+te.item_click ("LeftGrabContainer/##LeftGrab/")
 
 te.wait_for_marker (1)
 te.item_click (ORBIT_CENTER)
@@ -291,6 +293,8 @@ te.wait_for_seconds (0.5)
 -- The picture this lesson is listed by. Ignored while a viewer plays it;
 -- a bookkeeping run is what turns it into the thumbnail.
 te.capture_thumbnail()
+
+te.item_click ("LeftGrabContainer/##LeftGrab/")
 
 open_tab ("Tutorials")
 

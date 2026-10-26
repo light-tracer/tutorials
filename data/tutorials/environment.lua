@@ -1,4 +1,5 @@
 --@ title:       Lighting the scene
+--@ revision:    2
 --@ subtitle:    Environment slots, maps, lights and backgrounds
 --@ category:    Basics
 --@ order:       40

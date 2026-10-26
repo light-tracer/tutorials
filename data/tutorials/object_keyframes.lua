@@ -1,4 +1,5 @@
 --@ title:       Composing object animations
+--@ revision:    2
 --@ subtitle:    Create keyframe animations to move objects
 --@ category:    Basics
 --@ order:       70
